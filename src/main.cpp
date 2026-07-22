@@ -28,14 +28,13 @@ MPU6050 mpu;
 //MPU6050 mpu(0x69);         //Use for AD0 high
 //MPU6050 mpu(0x68, &Wire1); //Use for AD0 low, but 2nd Wire (TWI/I2C) object.
 
-/* OUTPUT FORMAT DEFINITION----------------------------------------------------------------------------------
-- Use "OUTPUT_READABLE_ACCELGYRO" if you want to see a tab-separated list of the accel 
+/* - Use "OUTPUT_READABLE_ACCELGYRO" if you want to see a tab-separated list of the accel 
 X/Y/Z and gyro X/Y/Z values in decimal. Easy to read, but not so easy to parse, and slower over UART.
 
 - Use "OUTPUT_BINARY_ACCELGYRO" to send all 6 axes of data as 16-bit binary, one right after the other. 
 As fast as possible without compression or data loss, easy to parse, but impossible to read for a human. 
 This output format is used as an output.
---------------------------------------------------------------------------------------------------------------*/ 
+*/ 
 #define OUTPUT_READABLE_ACCELGYRO
 //#define OUTPUT_BINARY_ACCELGYRO
 
@@ -117,12 +116,12 @@ void setup() {
 
   /* Use the code below to change accel/gyro offset values. Use MPU6050_Zero to obtain the recommended offsets */ 
   //Serial.println("Updating internal sensor offsets...\n");
-  mpu.setXAccelOffset(0); //Set your accelerometer offset for axis X
-  mpu.setYAccelOffset(0); //Set your accelerometer offset for axis Y
-  mpu.setZAccelOffset(0); //Set your accelerometer offset for axis Z
-  mpu.setXGyroOffset(0);  //Set your gyro offset for axis X
-  mpu.setYGyroOffset(0);  //Set your gyro offset for axis Y
-  mpu.setZGyroOffset(0);  //Set your gyro offset for axis Z
+  mpu.setXAccelOffset(0); //Set accelerometer offset for axis X
+  mpu.setYAccelOffset(0); //Set accelerometer offset for axis Y
+  mpu.setZAccelOffset(0); //Set accelerometer offset for axis Z
+  mpu.setXGyroOffset(0);  //Set gyro offset for axis X
+  mpu.setYGyroOffset(0);  //Set gyro offset for axis Y
+  mpu.setZGyroOffset(0);  //Set gyro offset for axis Z
 
   angle = atan2(-ax, ay) * 180.0 / PI;   // initial pitch
   gyroBiasY = 0;
